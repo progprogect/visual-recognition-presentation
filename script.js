@@ -31,33 +31,32 @@ function showOption(optionNumber) {
     event.target.classList.add('active');
 }
 
-// Dashboard tabs
-function showDashboard(dashboardNumber) {
-    // Hide all dashboards
-    document.querySelectorAll('.dashboard-mockup').forEach(dashboard => {
-        dashboard.classList.add('hidden');
+// Initialize charts when dashboards come into view
+const dashboardObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const dashboardId = entry.target.id;
+            if (dashboardId === 'dashboard1') {
+                setTimeout(() => initQualityChart(), 100);
+            } else if (dashboardId === 'dashboard2-content') {
+                setTimeout(() => initWeightChart(), 100);
+            } else if (dashboardId === 'dashboard3-content') {
+                setTimeout(() => initTrendChart(), 100);
+            }
+        }
     });
+}, { threshold: 0.5 });
+
+// Observe dashboard sections
+document.addEventListener('DOMContentLoaded', function() {
+    const dashboard1 = document.getElementById('dashboard1');
+    const dashboard2 = document.getElementById('dashboard2-content');
+    const dashboard3 = document.getElementById('dashboard3-content');
     
-    // Remove active class from all tabs
-    document.querySelectorAll('.dashboard-tab').forEach(tab => {
-        tab.classList.remove('active');
-    });
-    
-    // Show selected dashboard
-    document.getElementById(`dashboard${dashboardNumber}`).classList.remove('hidden');
-    
-    // Add active class to clicked tab
-    event.target.classList.add('active');
-    
-    // Initialize charts for the active dashboard
-    if (dashboardNumber === 1) {
-        initQualityChart();
-    } else if (dashboardNumber === 2) {
-        initWeightChart();
-    } else if (dashboardNumber === 3) {
-        initTrendChart();
-    }
-}
+    if (dashboard1) dashboardObserver.observe(dashboard1);
+    if (dashboard2) dashboardObserver.observe(dashboard2);
+    if (dashboard3) dashboardObserver.observe(dashboard3);
+});
 
 // Chart initialization functions
 function initQualityChart() {
@@ -252,30 +251,15 @@ function initTrendChart() {
     });
 }
 
-// Initialize charts on page load
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize the first dashboard chart
-    setTimeout(() => {
+// Reinitialize charts on window resize
+let resizeTimer;
+window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
         initQualityChart();
-    }, 500);
-    
-    // Reinitialize charts on window resize
-    let resizeTimer;
-    window.addEventListener('resize', function() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function() {
-            const activeDashboard = document.querySelector('.dashboard-mockup:not(.hidden)');
-            if (activeDashboard) {
-                if (activeDashboard.id === 'dashboard1') {
-                    initQualityChart();
-                } else if (activeDashboard.id === 'dashboard2') {
-                    initWeightChart();
-                } else if (activeDashboard.id === 'dashboard3') {
-                    initTrendChart();
-                }
-            }
-        }, 250);
-    });
+        initWeightChart();
+        initTrendChart();
+    }, 250);
 });
 
 // Animate progress bars on scroll

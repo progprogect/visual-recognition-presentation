@@ -16,7 +16,7 @@
                 <li><a href="#solution">Solution</a></li>
                 <li><a href="#examples">Examples</a></li>
                 <li><a href="#implementation">Implementation</a></li>
-                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#dashboard">Dashboards</a></li>
                 <li><a href="#timeline">Timeline</a></li>
             </ul>
         </div>
@@ -334,210 +334,377 @@
             <h2 class="section-title">Analytics Dashboard</h2>
             <p class="section-intro">Real-time insights and historical data at your fingertips</p>
             
-            <div class="dashboard-tabs">
-                <button class="dashboard-tab active" onclick="showDashboard(1)">Overview</button>
-                <button class="dashboard-tab" onclick="showDashboard(2)">Batch Details</button>
-                <button class="dashboard-tab" onclick="showDashboard(3)">Supplier Reports</button>
-            </div>
-
             <!-- Dashboard 1: Overview -->
-            <div class="dashboard-mockup active" id="dashboard1">
-                <div class="dashboard-header">
-                    <h3>Real-Time Production Overview</h3>
-                    <div class="dashboard-time">Last updated: 14:32:15</div>
-                </div>
-                
-                <div class="dashboard-grid">
-                    <div class="dashboard-card stat-card">
-                        <div class="card-title">Current Batch</h4>
-                        <div class="stat-value">1,247 kg</div>
-                        <div class="stat-change">+15% vs last batch</div>
+            <div class="dashboard-mockup realistic-dashboard" id="dashboard1">
+                <div class="dashboard-container">
+                    <div class="dashboard-topbar">
+                        <div class="dashboard-logo">CV Analytics</div>
+                        <div class="dashboard-time">Last updated: 14:32:15</div>
                     </div>
-
-                    <div class="dashboard-card chart-card">
-                        <div class="card-title">Quality Distribution</div>
-                        <div class="chart-container">
-                            <canvas id="qualityChart"></canvas>
+                    
+                    <div class="dashboard-title-bar">
+                        <h3>Real-Time Production Overview</h3>
+                        <div class="dashboard-status">
+                            <span class="status-indicator active"></span>
+                            <span>System Active</span>
                         </div>
                     </div>
-
-                    <div class="dashboard-card list-card">
-                        <div class="card-title">Classification Breakdown</div>
-                        <div class="classification-list">
-                            <div class="class-item">
-                                <span class="class-label">Ripe</span>
-                                <span class="class-bar"><span class="class-fill" style="width: 68%"></span></span>
-                                <span class="class-value">68% (848 kg)</span>
+                    
+                    <div class="dashboard-grid-realistic">
+                        <div class="dashboard-card-realistic stat-card-realistic">
+                            <div class="card-header-realistic">
+                                <span class="card-icon">📦</span>
+                                <span class="card-title-realistic">Current Batch</span>
                             </div>
-                            <div class="class-item">
-                                <span class="class-label">Unripe</span>
-                                <span class="class-bar"><span class="class-fill" style="width: 18%"></span></span>
-                                <span class="class-value">18% (224 kg)</span>
-                            </div>
-                            <div class="class-item">
-                                <span class="class-label">Dark</span>
-                                <span class="class-bar"><span class="class-fill" style="width: 9%"></span></span>
-                                <span class="class-value">9% (112 kg)</span>
-                            </div>
-                            <div class="class-item">
-                                <span class="class-label">Spoiled</span>
-                                <span class="class-bar"><span class="class-fill" style="width: 5%"></span></span>
-                                <span class="class-value">5% (63 kg)</span>
+                            <div class="stat-value-realistic">1,247 kg</div>
+                            <div class="stat-meta">
+                                <span class="stat-change-positive">+15%</span>
+                                <span class="stat-label-small">vs last batch</span>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="dashboard-card metric-card">
-                        <div class="card-title">Production Rate</div>
-                        <div class="metric-value">847 kg/h</div>
-                        <div class="metric-progress">
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 85%"></div>
+                        <div class="dashboard-card-realistic chart-card-realistic">
+                            <div class="card-header-realistic">
+                                <span class="card-icon">📊</span>
+                                <span class="card-title-realistic">Quality Distribution</span>
                             </div>
-                            <span>85% of target (1 t/h)</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Dashboard 2: Batch Details -->
-            <div class="dashboard-mockup hidden" id="dashboard2">
-                <div class="dashboard-header">
-                    <h3>Batch Analysis & Evidence</h3>
-                    <div class="dashboard-time">Batch #2024-11-17-001</div>
-                </div>
-                
-                <div class="dashboard-grid">
-                    <div class="dashboard-card evidence-card">
-                        <div class="card-title">Sample Images</div>
-                        <div class="evidence-grid">
-                            <div class="evidence-item">
-                                <img src="example 1.jpeg" alt="Evidence 1">
-                                <div class="evidence-label">Ripe - 14:25:32</div>
+                            <div class="chart-container-realistic">
+                                <canvas id="qualityChart"></canvas>
                             </div>
-                            <div class="evidence-item">
-                                <img src="example 2.jpeg" alt="Evidence 2">
-                                <div class="evidence-label">Unripe - 14:25:45</div>
-                            </div>
-                            <div class="evidence-item">
-                                <img src="example 3.jpeg" alt="Evidence 3">
-                                <div class="evidence-label">Spoiled - 14:26:01</div>
+                            <div class="chart-legend">
+                                <div class="legend-item"><span class="legend-color" style="background: #10b981"></span>Ripe</div>
+                                <div class="legend-item"><span class="legend-color" style="background: #f59e0b"></span>Unripe</div>
+                                <div class="legend-item"><span class="legend-color" style="background: #6b7280"></span>Dark</div>
+                                <div class="legend-item"><span class="legend-color" style="background: #ef4444"></span>Spoiled</div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="dashboard-card summary-card">
-                        <div class="card-title">Batch Summary</div>
-                        <div class="summary-table">
-                            <div class="summary-row">
-                                <span>Total Weight:</span>
-                                <strong>1,247 kg</strong>
+                        <div class="dashboard-card-realistic list-card-realistic">
+                            <div class="card-header-realistic">
+                                <span class="card-icon">🔍</span>
+                                <span class="card-title-realistic">Classification Breakdown</span>
                             </div>
-                            <div class="summary-row">
-                                <span>Processing Time:</span>
-                                <strong>1h 28m</strong>
-                            </div>
-                            <div class="summary-row">
-                                <span>Average Rate:</span>
-                                <strong>847 kg/h</strong>
-                            </div>
-                            <div class="summary-row">
-                                <span>Quality Score:</span>
-                                <strong class="score-good">8.2/10</strong>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="dashboard-card weight-card">
-                        <div class="card-title">Weight Distribution by Type</div>
-                        <div class="weight-chart">
-                            <canvas id="weightChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Dashboard 3: Supplier Reports -->
-            <div class="dashboard-mockup hidden" id="dashboard3">
-                <div class="dashboard-header">
-                    <h3>Supplier Quality Reports</h3>
-                    <div class="dashboard-time">Last 30 days</div>
-                </div>
-                
-                <div class="dashboard-grid">
-                    <div class="dashboard-card supplier-card">
-                        <div class="card-title">Supplier Comparison</div>
-                        <div class="supplier-list">
-                            <div class="supplier-item">
-                                <div class="supplier-name">Supplier A</div>
-                                <div class="supplier-stats">
-                                    <span>Avg Quality: 8.5/10</span>
-                                    <span>Batches: 24</span>
+                            <div class="classification-list-realistic">
+                                <div class="class-item-realistic">
+                                    <div class="class-header-realistic">
+                                        <span class="class-label-realistic">Ripe</span>
+                                        <span class="class-value-realistic">68% <span class="weight-value">(848 kg)</span></span>
+                                    </div>
+                                    <div class="class-bar-realistic">
+                                        <div class="class-fill-realistic" style="width: 68%; background: #10b981"></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="supplier-item">
-                                <div class="supplier-name">Supplier B</div>
-                                <div class="supplier-stats">
-                                    <span>Avg Quality: 7.2/10</span>
-                                    <span>Batches: 18</span>
+                                <div class="class-item-realistic">
+                                    <div class="class-header-realistic">
+                                        <span class="class-label-realistic">Unripe</span>
+                                        <span class="class-value-realistic">18% <span class="weight-value">(224 kg)</span></span>
+                                    </div>
+                                    <div class="class-bar-realistic">
+                                        <div class="class-fill-realistic" style="width: 18%; background: #f59e0b"></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="supplier-item">
-                                <div class="supplier-name">Supplier C</div>
-                                <div class="supplier-stats">
-                                    <span>Avg Quality: 6.8/10</span>
-                                    <span>Batches: 31</span>
+                                <div class="class-item-realistic">
+                                    <div class="class-header-realistic">
+                                        <span class="class-label-realistic">Dark</span>
+                                        <span class="class-value-realistic">9% <span class="weight-value">(112 kg)</span></span>
+                                    </div>
+                                    <div class="class-bar-realistic">
+                                        <div class="class-fill-realistic" style="width: 9%; background: #6b7280"></div>
+                                    </div>
+                                </div>
+                                <div class="class-item-realistic">
+                                    <div class="class-header-realistic">
+                                        <span class="class-label-realistic">Spoiled</span>
+                                        <span class="class-value-realistic">5% <span class="weight-value">(63 kg)</span></span>
+                                    </div>
+                                    <div class="class-bar-realistic">
+                                        <div class="class-fill-realistic" style="width: 5%; background: #ef4444"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="dashboard-card trend-card">
-                        <div class="card-title">Quality Trends</div>
-                        <div class="trend-chart">
-                            <canvas id="trendChart"></canvas>
-                        </div>
-                    </div>
-
-                    <div class="dashboard-card cost-card">
-                        <div class="card-title">Cost Impact Analysis</div>
-                        <div class="cost-breakdown">
-                            <div class="cost-item">
-                                <span>Premium Quality (Ripe):</span>
-                                <strong>848 kg × $12/kg = $10,176</strong>
+                        <div class="dashboard-card-realistic metric-card-realistic">
+                            <div class="card-header-realistic">
+                                <span class="card-icon">⚡</span>
+                                <span class="card-title-realistic">Production Rate</span>
                             </div>
-                            <div class="cost-item">
-                                <span>Standard Quality (Unripe):</span>
-                                <strong>224 kg × $8/kg = $1,792</strong>
-                            </div>
-                            <div class="cost-item">
-                                <span>Low Quality (Dark/Spoiled):</span>
-                                <strong>175 kg × $4/kg = $700</strong>
-                            </div>
-                            <div class="cost-divider"></div>
-                            <div class="cost-item total">
-                                <span>Fair Payment Total:</span>
-                                <strong>$12,668</strong>
-                            </div>
-                            <div class="cost-item savings">
-                                <span>Savings vs Uniform Pricing:</span>
-                                <strong>$1,247</strong>
+                            <div class="metric-value-realistic">847 kg/h</div>
+                            <div class="metric-progress-realistic">
+                                <div class="progress-bar-realistic">
+                                    <div class="progress-fill-realistic" style="width: 85%"></div>
+                                </div>
+                                <div class="progress-label-realistic">
+                                    <span>85% of target</span>
+                                    <span class="target-value">(1 t/h)</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="dashboard-features">
-                <h3>Dashboard Features:</h3>
-                <div class="features-grid">
-                    <div class="feature-badge">📱 Mobile Responsive</div>
-                    <div class="feature-badge">💾 Evidence Storage</div>
-                    <div class="feature-badge">📊 Weight-based Analytics</div>
-                    <div class="feature-badge">🔍 Batch Tracking</div>
-                    <div class="feature-badge">📈 Historical Trends</div>
-                    <div class="feature-badge">💰 Cost Calculations</div>
+    <!-- Dashboard 2: Batch Details -->
+    <section class="slide dashboard-slide" id="dashboard2">
+        <div class="slide-content">
+            <h2 class="section-title">Batch Analysis & Evidence</h2>
+            <p class="section-intro">Detailed batch information with visual proof for supplier negotiations</p>
+            
+            <div class="dashboard-mockup realistic-dashboard" id="dashboard2-content">
+                <div class="dashboard-container">
+                    <div class="dashboard-topbar">
+                        <div class="dashboard-logo">CV Analytics</div>
+                        <div class="dashboard-time">Batch #2024-11-17-001</div>
+                    </div>
+                    
+                    <div class="dashboard-title-bar">
+                        <h3>Batch Analysis & Evidence</h3>
+                        <div class="dashboard-status">
+                            <span class="status-indicator active"></span>
+                            <span>Completed</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-grid-realistic">
+                        <div class="dashboard-card-realistic evidence-card-realistic">
+                            <div class="card-header-realistic">
+                                <span class="card-icon">📸</span>
+                                <span class="card-title-realistic">Sample Evidence Images</span>
+                            </div>
+                            <div class="evidence-grid-realistic">
+                                <div class="evidence-item-realistic">
+                                    <div class="evidence-image-wrapper">
+                                        <img src="example 1.jpeg" alt="Evidence 1">
+                                        <div class="evidence-badge ripe">Ripe</div>
+                                    </div>
+                                    <div class="evidence-label-realistic">14:25:32</div>
+                                </div>
+                                <div class="evidence-item-realistic">
+                                    <div class="evidence-image-wrapper">
+                                        <img src="example 2.jpeg" alt="Evidence 2">
+                                        <div class="evidence-badge unripe">Unripe</div>
+                                    </div>
+                                    <div class="evidence-label-realistic">14:25:45</div>
+                                </div>
+                                <div class="evidence-item-realistic">
+                                    <div class="evidence-image-wrapper">
+                                        <img src="example 3.jpeg" alt="Evidence 3">
+                                        <div class="evidence-badge spoiled">Spoiled</div>
+                                    </div>
+                                    <div class="evidence-label-realistic">14:26:01</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-card-realistic summary-card-realistic">
+                            <div class="card-header-realistic">
+                                <span class="card-icon">📋</span>
+                                <span class="card-title-realistic">Batch Summary</span>
+                            </div>
+                            <div class="summary-table-realistic">
+                                <div class="summary-row-realistic">
+                                    <span class="summary-label">Total Weight</span>
+                                    <strong class="summary-value">1,247 kg</strong>
+                                </div>
+                                <div class="summary-row-realistic">
+                                    <span class="summary-label">Processing Time</span>
+                                    <strong class="summary-value">1h 28m</strong>
+                                </div>
+                                <div class="summary-row-realistic">
+                                    <span class="summary-label">Average Rate</span>
+                                    <strong class="summary-value">847 kg/h</strong>
+                                </div>
+                                <div class="summary-row-realistic">
+                                    <span class="summary-label">Quality Score</span>
+                                    <strong class="summary-value score-good-realistic">8.2/10</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-card-realistic weight-card-realistic">
+                            <div class="card-header-realistic">
+                                <span class="card-icon">⚖️</span>
+                                <span class="card-title-realistic">Weight Distribution by Type</span>
+                            </div>
+                            <div class="weight-chart-realistic">
+                                <canvas id="weightChart"></canvas>
+                            </div>
+                            <div class="weight-stats-realistic">
+                                <div class="weight-stat-item">
+                                    <span class="weight-stat-label">Ripe:</span>
+                                    <span class="weight-stat-value">848 kg</span>
+                                </div>
+                                <div class="weight-stat-item">
+                                    <span class="weight-stat-label">Unripe:</span>
+                                    <span class="weight-stat-value">224 kg</span>
+                                </div>
+                                <div class="weight-stat-item">
+                                    <span class="weight-stat-label">Dark:</span>
+                                    <span class="weight-stat-value">112 kg</span>
+                                </div>
+                                <div class="weight-stat-item">
+                                    <span class="weight-stat-label">Spoiled:</span>
+                                    <span class="weight-stat-value">63 kg</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+
+    <!-- Dashboard 3: Supplier Reports -->
+    <section class="slide dashboard-slide" id="dashboard3">
+        <div class="slide-content">
+            <h2 class="section-title">Supplier Quality Reports</h2>
+            <p class="section-intro">Compare suppliers and calculate fair pricing based on actual quality</p>
+            
+            <div class="dashboard-mockup realistic-dashboard" id="dashboard3-content">
+                <div class="dashboard-container">
+                    <div class="dashboard-topbar">
+                        <div class="dashboard-logo">CV Analytics</div>
+                        <div class="dashboard-time">Last 30 days</div>
+                    </div>
+                    
+                    <div class="dashboard-title-bar">
+                        <h3>Supplier Quality Reports</h3>
+                        <div class="dashboard-status">
+                            <span class="status-indicator active"></span>
+                            <span>Active Monitoring</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-grid-realistic">
+                        <div class="dashboard-card-realistic supplier-card-realistic">
+                            <div class="card-header-realistic">
+                                <span class="card-icon">🏭</span>
+                                <span class="card-title-realistic">Supplier Comparison</span>
+                            </div>
+                            <div class="supplier-list-realistic">
+                                <div class="supplier-item-realistic">
+                                    <div class="supplier-header-realistic">
+                                        <div class="supplier-name-realistic">Supplier A</div>
+                                        <div class="supplier-rating-realistic good">8.5/10</div>
+                                    </div>
+                                    <div class="supplier-stats-realistic">
+                                        <div class="supplier-stat-item">
+                                            <span class="stat-label-realistic">Avg Quality:</span>
+                                            <span class="stat-value-realistic">8.5/10</span>
+                                        </div>
+                                        <div class="supplier-stat-item">
+                                            <span class="stat-label-realistic">Batches:</span>
+                                            <span class="stat-value-realistic">24</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="supplier-item-realistic">
+                                    <div class="supplier-header-realistic">
+                                        <div class="supplier-name-realistic">Supplier B</div>
+                                        <div class="supplier-rating-realistic medium">7.2/10</div>
+                                    </div>
+                                    <div class="supplier-stats-realistic">
+                                        <div class="supplier-stat-item">
+                                            <span class="stat-label-realistic">Avg Quality:</span>
+                                            <span class="stat-value-realistic">7.2/10</span>
+                                        </div>
+                                        <div class="supplier-stat-item">
+                                            <span class="stat-label-realistic">Batches:</span>
+                                            <span class="stat-value-realistic">18</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="supplier-item-realistic">
+                                    <div class="supplier-header-realistic">
+                                        <div class="supplier-name-realistic">Supplier C</div>
+                                        <div class="supplier-rating-realistic low">6.8/10</div>
+                                    </div>
+                                    <div class="supplier-stats-realistic">
+                                        <div class="supplier-stat-item">
+                                            <span class="stat-label-realistic">Avg Quality:</span>
+                                            <span class="stat-value-realistic">6.8/10</span>
+                                        </div>
+                                        <div class="supplier-stat-item">
+                                            <span class="stat-label-realistic">Batches:</span>
+                                            <span class="stat-value-realistic">31</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-card-realistic trend-card-realistic">
+                            <div class="card-header-realistic">
+                                <span class="card-icon">📈</span>
+                                <span class="card-title-realistic">Quality Trends</span>
+                            </div>
+                            <div class="trend-chart-realistic">
+                                <canvas id="trendChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-card-realistic cost-card-realistic">
+                            <div class="card-header-realistic">
+                                <span class="card-icon">💰</span>
+                                <span class="card-title-realistic">Fair Pricing Calculation</span>
+                            </div>
+                            <div class="cost-breakdown-realistic">
+                                <div class="cost-item-realistic">
+                                    <span class="cost-label-realistic">Premium Quality (Ripe)</span>
+                                    <div class="cost-details-realistic">
+                                        <span class="cost-quantity">848 kg</span>
+                                        <span class="cost-multiply">×</span>
+                                        <span class="cost-price">$12/kg</span>
+                                        <span class="cost-equals">=</span>
+                                        <strong class="cost-total">$10,176</strong>
+                                    </div>
+                                </div>
+                                <div class="cost-item-realistic">
+                                    <span class="cost-label-realistic">Standard Quality (Unripe)</span>
+                                    <div class="cost-details-realistic">
+                                        <span class="cost-quantity">224 kg</span>
+                                        <span class="cost-multiply">×</span>
+                                        <span class="cost-price">$8/kg</span>
+                                        <span class="cost-equals">=</span>
+                                        <strong class="cost-total">$1,792</strong>
+                                    </div>
+                                </div>
+                                <div class="cost-item-realistic">
+                                    <span class="cost-label-realistic">Low Quality (Dark/Spoiled)</span>
+                                    <div class="cost-details-realistic">
+                                        <span class="cost-quantity">175 kg</span>
+                                        <span class="cost-multiply">×</span>
+                                        <span class="cost-price">$4/kg</span>
+                                        <span class="cost-equals">=</span>
+                                        <strong class="cost-total">$700</strong>
+                                    </div>
+                                </div>
+                                <div class="cost-divider-realistic"></div>
+                                <div class="cost-item-realistic total-realistic">
+                                    <span class="cost-label-realistic">Fair Payment Total</span>
+                                    <strong class="cost-total-large">$12,668</strong>
+                                </div>
+                                <div class="cost-item-realistic savings-realistic">
+                                    <span class="cost-label-realistic">Savings vs Uniform Pricing</span>
+                                    <strong class="cost-savings">$1,247</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Features -->
+    <section class="slide dashboard-features-slide">
+        <div class="slide-content">
+            <h2 class="section-title">Dashboard Features</h2>
+            <div class="features-grid">
+                <div class="feature-badge">📱 Mobile Responsive</div>
+                <div class="feature-badge">💾 Evidence Storage</div>
+                <div class="feature-badge">📊 Weight-based Analytics</div>
+                <div class="feature-badge">🔍 Batch Tracking</div>
+                <div class="feature-badge">📈 Historical Trends</div>
+                <div class="feature-badge">💰 Cost Calculations</div>
             </div>
         </div>
     </section>
@@ -787,25 +954,36 @@
                 </div>
             </div>
 
-            <div class="roi-calculation">
-                <h3>ROI Example:</h3>
-                <div class="roi-box">
-                    <div class="roi-item">
-                        <span>Monthly Processing:</span>
-                        <strong>50 tons</strong>
-                    </div>
-                    <div class="roi-item">
-                        <span>Average Savings per Ton:</span>
-                        <strong>$25</strong>
-                    </div>
-                    <div class="roi-divider"></div>
-                    <div class="roi-item total">
-                        <span>Monthly Savings:</span>
-                        <strong>$1,250</strong>
-                    </div>
-                    <div class="roi-item">
-                        <span>Annual Savings:</span>
-                        <strong>$15,000+</strong>
+            <div class="business-impact">
+                <h3>Key Business Impact:</h3>
+                <div class="impact-box">
+                    <div class="impact-highlight">
+                        <div class="impact-icon">💰</div>
+                        <div class="impact-content">
+                            <h4>Reduce Overpayment for Low-Quality Products</h4>
+                            <p class="impact-description">
+                                With accurate quality classification, you can reduce payments for low-quality products by <strong>20-30%</strong>. 
+                                Instead of paying uniform prices for mixed-quality batches, you'll pay suppliers based on actual product quality.
+                            </p>
+                            <div class="impact-benefits">
+                                <div class="benefit-item">
+                                    <span class="benefit-check">✓</span>
+                                    <span>Pay fair prices only for quality products</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <span class="benefit-check">✓</span>
+                                    <span>Identify low-quality batches before payment</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <span class="benefit-check">✓</span>
+                                    <span>Use objective data in supplier negotiations</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <span class="benefit-check">✓</span>
+                                    <span>Significantly reduce costs on substandard products</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
