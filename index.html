@@ -350,93 +350,99 @@
                         </div>
                     </div>
                     
-                    <div class="dashboard-grid-realistic">
-                        <div class="dashboard-card-realistic stat-card-realistic">
-                            <div class="card-header-realistic">
-                                <span class="card-icon">📦</span>
-                                <span class="card-title-realistic">Current Batch</span>
+                    <div class="dashboard-layout-realistic">
+                        <!-- Top Stats Row -->
+                        <div class="dashboard-stats-row">
+                            <div class="dashboard-card-realistic stat-card-realistic">
+                                <div class="card-header-realistic">
+                                    <span class="card-icon">📦</span>
+                                    <span class="card-title-realistic">Current Batch</span>
+                                </div>
+                                <div class="stat-value-realistic">1,247 kg</div>
+                                <div class="stat-meta">
+                                    <span class="stat-change-positive">+15%</span>
+                                    <span class="stat-label-small">vs last batch</span>
+                                </div>
                             </div>
-                            <div class="stat-value-realistic">1,247 kg</div>
-                            <div class="stat-meta">
-                                <span class="stat-change-positive">+15%</span>
-                                <span class="stat-label-small">vs last batch</span>
-                            </div>
-                        </div>
 
-                        <div class="dashboard-card-realistic chart-card-realistic">
-                            <div class="card-header-realistic">
-                                <span class="card-icon">📊</span>
-                                <span class="card-title-realistic">Quality Distribution</span>
-                            </div>
-                            <div class="chart-container-realistic">
-                                <canvas id="qualityChart"></canvas>
-                            </div>
-                            <div class="chart-legend">
-                                <div class="legend-item"><span class="legend-color" style="background: #10b981"></span>Ripe</div>
-                                <div class="legend-item"><span class="legend-color" style="background: #f59e0b"></span>Unripe</div>
-                                <div class="legend-item"><span class="legend-color" style="background: #6b7280"></span>Dark</div>
-                                <div class="legend-item"><span class="legend-color" style="background: #ef4444"></span>Spoiled</div>
-                            </div>
-                        </div>
-
-                        <div class="dashboard-card-realistic list-card-realistic">
-                            <div class="card-header-realistic">
-                                <span class="card-icon">🔍</span>
-                                <span class="card-title-realistic">Classification Breakdown</span>
-                            </div>
-                            <div class="classification-list-realistic">
-                                <div class="class-item-realistic">
-                                    <div class="class-header-realistic">
-                                        <span class="class-label-realistic">Ripe</span>
-                                        <span class="class-value-realistic">68% <span class="weight-value">(848 kg)</span></span>
-                                    </div>
-                                    <div class="class-bar-realistic">
-                                        <div class="class-fill-realistic" style="width: 68%; background: #10b981"></div>
-                                    </div>
+                            <div class="dashboard-card-realistic metric-card-realistic">
+                                <div class="card-header-realistic">
+                                    <span class="card-icon">⚡</span>
+                                    <span class="card-title-realistic">Production Rate</span>
                                 </div>
-                                <div class="class-item-realistic">
-                                    <div class="class-header-realistic">
-                                        <span class="class-label-realistic">Unripe</span>
-                                        <span class="class-value-realistic">18% <span class="weight-value">(224 kg)</span></span>
+                                <div class="metric-value-realistic">847 kg/h</div>
+                                <div class="metric-progress-realistic">
+                                    <div class="progress-bar-realistic">
+                                        <div class="progress-fill-realistic" style="width: 85%"></div>
                                     </div>
-                                    <div class="class-bar-realistic">
-                                        <div class="class-fill-realistic" style="width: 18%; background: #f59e0b"></div>
-                                    </div>
-                                </div>
-                                <div class="class-item-realistic">
-                                    <div class="class-header-realistic">
-                                        <span class="class-label-realistic">Dark</span>
-                                        <span class="class-value-realistic">9% <span class="weight-value">(112 kg)</span></span>
-                                    </div>
-                                    <div class="class-bar-realistic">
-                                        <div class="class-fill-realistic" style="width: 9%; background: #6b7280"></div>
-                                    </div>
-                                </div>
-                                <div class="class-item-realistic">
-                                    <div class="class-header-realistic">
-                                        <span class="class-label-realistic">Spoiled</span>
-                                        <span class="class-value-realistic">5% <span class="weight-value">(63 kg)</span></span>
-                                    </div>
-                                    <div class="class-bar-realistic">
-                                        <div class="class-fill-realistic" style="width: 5%; background: #ef4444"></div>
+                                    <div class="progress-label-realistic">
+                                        <span>85% of target</span>
+                                        <span class="target-value">(1 t/h)</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="dashboard-card-realistic metric-card-realistic">
-                            <div class="card-header-realistic">
-                                <span class="card-icon">⚡</span>
-                                <span class="card-title-realistic">Production Rate</span>
-                            </div>
-                            <div class="metric-value-realistic">847 kg/h</div>
-                            <div class="metric-progress-realistic">
-                                <div class="progress-bar-realistic">
-                                    <div class="progress-fill-realistic" style="width: 85%"></div>
+                        <!-- Main Content Row -->
+                        <div class="dashboard-main-row">
+                            <div class="dashboard-card-realistic chart-card-realistic">
+                                <div class="card-header-realistic">
+                                    <span class="card-icon">📊</span>
+                                    <span class="card-title-realistic">Quality Distribution</span>
                                 </div>
-                                <div class="progress-label-realistic">
-                                    <span>85% of target</span>
-                                    <span class="target-value">(1 t/h)</span>
+                                <div class="chart-container-realistic">
+                                    <canvas id="qualityChart"></canvas>
+                                </div>
+                                <div class="chart-legend">
+                                    <div class="legend-item"><span class="legend-color" style="background: #10b981"></span>Ripe</div>
+                                    <div class="legend-item"><span class="legend-color" style="background: #f59e0b"></span>Unripe</div>
+                                    <div class="legend-item"><span class="legend-color" style="background: #6b7280"></span>Dark</div>
+                                    <div class="legend-item"><span class="legend-color" style="background: #ef4444"></span>Spoiled</div>
+                                </div>
+                            </div>
+
+                            <div class="dashboard-card-realistic list-card-realistic">
+                                <div class="card-header-realistic">
+                                    <span class="card-icon">🔍</span>
+                                    <span class="card-title-realistic">Classification Breakdown</span>
+                                </div>
+                                <div class="classification-list-realistic">
+                                    <div class="class-item-realistic">
+                                        <div class="class-header-realistic">
+                                            <span class="class-label-realistic">Ripe</span>
+                                            <span class="class-value-realistic">68% <span class="weight-value">(848 kg)</span></span>
+                                        </div>
+                                        <div class="class-bar-realistic">
+                                            <div class="class-fill-realistic" style="width: 68%; background: #10b981"></div>
+                                        </div>
+                                    </div>
+                                    <div class="class-item-realistic">
+                                        <div class="class-header-realistic">
+                                            <span class="class-label-realistic">Unripe</span>
+                                            <span class="class-value-realistic">18% <span class="weight-value">(224 kg)</span></span>
+                                        </div>
+                                        <div class="class-bar-realistic">
+                                            <div class="class-fill-realistic" style="width: 18%; background: #f59e0b"></div>
+                                        </div>
+                                    </div>
+                                    <div class="class-item-realistic">
+                                        <div class="class-header-realistic">
+                                            <span class="class-label-realistic">Dark</span>
+                                            <span class="class-value-realistic">9% <span class="weight-value">(112 kg)</span></span>
+                                        </div>
+                                        <div class="class-bar-realistic">
+                                            <div class="class-fill-realistic" style="width: 9%; background: #6b7280"></div>
+                                        </div>
+                                    </div>
+                                    <div class="class-item-realistic">
+                                        <div class="class-header-realistic">
+                                            <span class="class-label-realistic">Spoiled</span>
+                                            <span class="class-value-realistic">5% <span class="weight-value">(63 kg)</span></span>
+                                        </div>
+                                        <div class="class-bar-realistic">
+                                            <div class="class-fill-realistic" style="width: 5%; background: #ef4444"></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
